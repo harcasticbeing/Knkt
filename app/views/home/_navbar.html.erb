@@ -8,13 +8,15 @@
     <div class="navbar-nav">
         <%= link_to 'Home', home_path, class: "nav-link" %>
         <% if user_signed_in? then %>
-          <%= link_to 'My Posts', '', class: "nav-link" %>
+          <%= link_to 'My Posts', '/posts', class: "nav-link" %>
           <%= link_to 'Following', '', class: "nav-link" %>
           <%= link_to 'Followers', '', class: "nav-link" %>
+          <%= link_to 'Create Post', new_post_path, class: "nav-link" %>
         <% end %> 
       </div>
       <div class="navbar-nav ms-auto">
         <% if user_signed_in? then %>
+          <div class="nav-link"><%= @user.first_name + ' ' + @user.last_name %></div>
           <%= link_to 'Edit Profile', edit_user_registration_path, class: "nav-link" %>
           <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: "nav-link" %>
         <% else %> 
