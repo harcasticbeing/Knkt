@@ -1,0 +1,6 @@
+<h2>Followers List</h2>
+<ul class="list-group col-6">
+  <% @followers.each do |fr| %>
+    <li class="list-group-item"><a href="/user/<%= fr.id %>"><h3><%= fr.first_name + ' ' + fr.last_name %></h3></a></li>
+  <% end %>   
+</ul>

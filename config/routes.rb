@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'home#index'
   get '/home', to: 'home#index'
+  get '/user/:id', to: 'users#show'
+  post '/user', to: 'users#follow'
+  delete '/user', to: 'users#unfollow'
+  get '/followers', to: 'home#followers'
+  get '/followings', to: 'home#followings'
   resources :posts
 end
