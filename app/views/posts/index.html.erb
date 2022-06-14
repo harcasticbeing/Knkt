@@ -1,0 +1,11 @@
+<h2>My Posts</h2>
+<div class="card col-6">
+  <ul class="list-group list-group-flush">
+    <% @posts.each do |post| %>
+     <li class="list-group-item"><a href="/posts/<%= post.id %>"><h3><%= post.title %> </h3></a></li>
+    <% end %> 
+  </ul>
+</div>
+<ul>
+   
+</ul>

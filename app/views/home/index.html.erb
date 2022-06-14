@@ -1,1 +1,14 @@
-<h1>Hello, world!</h1>
+<h2>WELCOME TO KNKT+</h2>
+<h2>Recent Posts</h2>
+
+<ul>
+  <% @posts.each do |post| %>
+  <div class="card w-50">
+    <div class="card-body">
+      <h3 class="card-title"><%= post.title %></h3>
+      <h5 class="card-text">- by <a href="/user/<%= post.user_id %>"><%= post.user.first_name %> <%= post.user.last_name %></a></h5>
+      <a href="/posts/<%= post.id%>" class="btn btn-primary">View Post</a>
+    </div>
+  </div>
+  <% end %> 
+</ul>

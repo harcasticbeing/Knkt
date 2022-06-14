@@ -1,0 +1,30 @@
+<h2><%= @user_view.first_name + ' ' + @user_view.last_name %> </h2>
+<h3>Email: <%= @user_view.email %> </h3>
+<% if @is_following %>
+  <h4>Following</h4>
+  <form action="/user" method="post">
+    <input type="hidden" name="follow[user_id]" value="<%= @user_view.id %>">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" class="btn btn-danger">x Unfollow</button>
+  </form>
+<% elsif @user.id == @user_view.id %>
+  <h2> </h2>
+<% else %>
+  <form action="/user" method="post">
+    <input type="hidden" name="follow[user_id]" value="<%= @user_view.id %>">
+    <button type="submit" class="btn btn-primary">Follow+</button>
+  </form>
+<% end %>
+<hr>
+<h3>User Posts</h3>
+<ul>
+  <% @posts.each do |post| %>
+  <div class="card w-50">
+    <div class="card-body">
+      <h3 class="card-title"><%= post.title %></h3>
+      <h5 class="card-text">- by <a href="/user/<%= post.user_id %>"><%= post.user.first_name %> <%= post.user.last_name %></a></h5>
+      <a href="/posts/<%= post.id%>" class="btn btn-primary">View Post</a>
+    </div>
+  </div>
+  <% end %> 
+</ul>
